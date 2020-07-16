@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('this.props.currentUser', this.props.currentUser);
     return (
       <div>
         <Header />
