@@ -5,13 +5,13 @@ import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 import './cart-dropdown.styles.scss';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 export const CartDropdown = ({ cartItems }) => {
-  console.log('cartItems', cartItems);
   return (
     <div className='cart-dropdown'>
       <div className='cart-items'>
-        {cartItems.map((item) => (
+        {cartItems.map(item => (
           <CartItem className='collection-item' key={item.id} item={item} />
         ))}
       </div>
@@ -20,8 +20,8 @@ export const CartDropdown = ({ cartItems }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
+const mapStateToProps = state => ({
+  cartItems: selectCartItems(state),
 });
 
 export default connect(mapStateToProps)(CartDropdown);
