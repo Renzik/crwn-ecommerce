@@ -1,5 +1,5 @@
-import { CartActionTypes } from './cart.types';
-import { checkForDuplicates } from './cart.utils';
+import { cartActionTypes } from './cart.types';
+import { checkForDuplicates, clearItemFromCart, decreaseOrRemoveFromCheckout } from './cart.utils';
 
 //state
 const INITIAL_STATE = {
@@ -11,11 +11,19 @@ const INITIAL_STATE = {
 const cartReducer = (state = INITIAL_STATE, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case CartActionTypes.TOOGLE_CART_HIDDEN:
+    case cartActionTypes.TOOGLE_CART_HIDDEN:
       return { ...state, hidden: !state.hidden };
 
-    case CartActionTypes.ADD_ITEM:
+    case cartActionTypes.ADD_ITEM:
       return { ...state, cartItems: checkForDuplicates(state.cartItems, action.payload) };
+
+    case cartActionTypes.REMOVE_ITEM:
+      console.log('action', action.payload);
+      return { ...state, cartItems: decreaseOrRemoveFromCheckout(state.cartItems, action.payload) };
+
+    case cartActionTypes.CLEAR_ITEM_FROM_CART:
+      return { ...state, cartItems: clearItemFromCart(state.cartItems, action.payload) };
+
     default:
       return { ...state };
   }
