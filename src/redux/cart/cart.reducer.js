@@ -18,14 +18,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return { ...state, cartItems: checkForDuplicates(state.cartItems, action.payload) };
 
     case cartActionTypes.REMOVE_ITEM:
-      console.log('action', action.payload);
       return { ...state, cartItems: decreaseOrRemoveFromCheckout(state.cartItems, action.payload) };
 
     case cartActionTypes.CLEAR_ITEM_FROM_CART:
       return { ...state, cartItems: clearItemFromCart(state.cartItems, action.payload) };
 
     default:
-      return { ...state };
+      return state;
   }
 };
 
