@@ -7,7 +7,7 @@ import { addItem } from '../../redux/cart/cart.actions';
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ item, addItemDispatcher }) => {
-  const { id, name, price, imageUrl } = item;
+  const { name, price, imageUrl } = item;
   return (
     <div className='collection-item'>
       <div className='background-image' style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -24,8 +24,8 @@ const CollectionItem = ({ item, addItemDispatcher }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItemDispatcher: (item) => dispatch(addItem(item)),
+const mapDispatchToProps = dispatch => ({
+  addItemDispatcher: item => dispatch(addItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
