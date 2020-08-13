@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { deleteFromCart, addItem, removeItem } from '../../redux/cart/cart.actions';
 
 import './checkout-item.styles.scss';
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  Image,
+  Name,
+  Quantity,
+} from './checkout-item.styles';
 
 const CheckoutItem = ({
   cartItem,
