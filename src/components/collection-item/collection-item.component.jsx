@@ -15,7 +15,7 @@ import {
 const CollectionItem = ({ item, addItemDispatcher }) => {
   const { name, price, imageUrl } = item;
   return (
-    <CollectionItemContainer className='container'>
+    <CollectionItemContainer>
       <BackgroundImage imageUrl={imageUrl} />
 
       <CollectionFooter>

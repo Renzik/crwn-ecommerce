@@ -10,9 +10,9 @@ import { CartIconContainer, ItemCountSpan, ShoppingIcon } from './cart-icon.styl
 
 const CartIcon = ({ toggleCart, itemCount }) => {
   return (
-    <CartIconContainer className='cart-icon' onClick={() => toggleCart()}>
-      <ShoppingIcon className='shopping-icon' />
-      <ItemCountSpan className='item-count'>{itemCount}</ItemCountSpan>
+    <CartIconContainer onClick={() => toggleCart()}>
+      <ShoppingIcon />
+      <ItemCountSpan>{itemCount}</ItemCountSpan>
     </CartIconContainer>
   );
 };

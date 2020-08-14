@@ -6,9 +6,9 @@ import { CollectionPreviewContainer, Title, Preview } from './collection-preview
 
 const CollectionPreview = ({ title, items }) => {
   return (
-    <CollectionPreviewContainer className='collection-preview'>
-      <Title className='title'>{title.toUpperCase()}</Title>
-      <Preview className='preview'>
+    <CollectionPreviewContainer>
+      <Title>{title.toUpperCase()}</Title>
+      <Preview>
         {items
           .filter((item, idx) => idx < 4)
           .map(item => (

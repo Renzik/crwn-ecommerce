@@ -12,12 +12,12 @@ import { CartDropdownContainer, CartItemsContainer, EmptyMessage } from './cart-
 
 export const CartDropdown = ({ cartItems, history, dispatch }) => {
   return (
-    <CartDropdownContainer className='cart-dropdown'>
-      <CartItemsContainer className='cart-items'>
+    <CartDropdownContainer>
+      <CartItemsContainer>
         {cartItems.length ? (
           cartItems.map(item => <CartItem key={item.id} item={item} />)
         ) : (
-          <EmptyMessage className='empty-message'>Your cart is empty</EmptyMessage>
+          <EmptyMessage>Your cart is empty</EmptyMessage>
         )}
       </CartItemsContainer>
       <CustomButton
