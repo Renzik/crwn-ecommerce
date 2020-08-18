@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
-import '../sign-up/sign-up.styles.scss';
+import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 export default class SignUp extends Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class SignUp extends Component {
     };
   }
 
-  handleSubmit = async (e) => {
+  handleSubmit = async e => {
     e.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
 
@@ -39,7 +39,7 @@ export default class SignUp extends Component {
     }
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { value, name } = e.target;
 
     this.setState({ [name]: value });
@@ -48,8 +48,8 @@ export default class SignUp extends Component {
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div className='sign-up'>
-        <h2 className='title'>I do not have a account</h2>
+      <SignUpContainer>
+        <SignUpTitle>I do not have a account</SignUpTitle>
         <span>Sign up with your email and password</span>
 
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
@@ -87,7 +87,7 @@ export default class SignUp extends Component {
           />
           <CustomButton type='submit'>Sign Up</CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }
